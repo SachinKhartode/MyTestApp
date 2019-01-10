@@ -57,7 +57,7 @@ const routes: Routes = [
   { path: "CammelCaseDirective", component: DirectivesImplementerComponent},
   { path: "Observable", component: ObservableComponent},
   { path: "Material", component: AngMaterialGridComponent},
-  // { path: "**", redirectTo:'artist' }
+  { path: "**", redirectTo:'artist' }
 ];
 
 @NgModule({
