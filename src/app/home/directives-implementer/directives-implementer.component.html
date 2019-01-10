@@ -1,0 +1,9 @@
+<div>
+<h1>Cammel Case Attribute Directive Implementation</h1>
+<div appCammelCase [cammelCaseData]="cammelCaseData" (outCammelCaseData)="getCammelCaseData($event)"></div>
+<div>
+    <div *ngFor="let item of newcammelCaseData">
+        {{item}}
+    </div >
+</div>
+</div>

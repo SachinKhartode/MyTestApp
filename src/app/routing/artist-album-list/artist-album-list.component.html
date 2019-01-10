@@ -1,0 +1,19 @@
+<h1>Artist Album Listing</h1>
+
+
+<div class="list-group">
+  <!-- commented below line because artistId removed from route configuration -->
+  <!-- <a [routerLink]="['../../../displayTrackOrAlbum', 100]"  -->
+    <a [routerLink]="['../../displayTrackOrAlbum', track.thumbnail]" 
+     class="list-group-item list-group-item-action"
+     *ngFor="let track of results">
+    <img src="{{track.thumbnail}}" style="width: 25px; height: 25px;">
+     <span style="vertical-align:top; font-weight: bold;padding-left: 20px"> 
+        {{ track.name }} 
+        by
+        {{ track.artist }}
+      </span>
+    <br/>
+    <br/>
+  </a>
+</div>

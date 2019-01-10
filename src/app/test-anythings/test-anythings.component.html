@@ -1,0 +1,17 @@
+<style>
+    .followup{
+        color: red
+    }
+
+    .unfollow{
+        color: green
+    }
+</style> 
+<form>
+
+<button [ngClass]="{'followup' : isFollow == true,
+    'unfollow' : isFollow== false }" 
+    (click)="onClick()">
+    {{isFollow == true ? 'Unfollow' : (isFollow == false ? 'Follow' : '')}}
+</button>
+</form>

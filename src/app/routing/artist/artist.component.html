@@ -1,0 +1,20 @@
+<h1>Artist</h1>
+<p>
+  <a [routerLink]="['tracks']">Tracks</a> |
+  <a [routerLink]="['albums']">Albums</a>
+
+  <router-outlet></router-outlet>
+</p>
+
+
+<!-- 
+<div class="list-group">
+  <a [routerLink]="['artist', track.artistId]" 
+     class="list-group-item list-group-item-action"
+     *ngFor="let track of results">
+    <img src="{{track.thumbnail}}">
+    {{ track.name }} <span class="text-muted">by</span> {{ track.artist }}
+    <br/>
+    <br/>
+  </a>
+</div> -->

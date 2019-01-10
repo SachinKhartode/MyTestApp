@@ -1,0 +1,36 @@
+<style>
+  .sidenav {
+      height: 100%;
+      width: 15%;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      padding-top: 30px;
+  }
+  
+  .sidenav a {
+      padding: 6px 8px 6px 8px;
+      text-decoration: none;
+      font-size: 15px;
+      color: #818181;
+      display: block;
+  }
+  
+  .sidenav a:hover {
+      color: #f1f1f1;
+  }
+
+</style>
+<div class="sidenav">
+  <a [routerLink]="['lifecycleHooks']">Lifecycle Hooks</a>
+  <a [routerLink]="['constructorDecorator']">Constructor Param Decorators</a>
+  <a [routerLink]="['testNgPlural']">Ng Plural</a>
+  <a [routerLink]="['FileUpload']">Annimation & View Encapsualtion</a>
+  <a [routerLink]="['CammelCaseDirective']">Cammel Case Directive</a>
+  <a [routerLink]="['Observable']">Observable Test</a>
+  <a [routerLink]="['Material']">Angular Material Control</a>
+  
+</div>
