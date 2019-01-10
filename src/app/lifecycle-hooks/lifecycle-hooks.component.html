@@ -1,5 +1,13 @@
+<form [formGroup]="testForm">
 <p>
-{{data}}
-
-click F12  and check console log.
+    click F12  and check console log.
 </p>
+<div>
+    <label for="FirstName"></label>
+    <input type="text" id="FirstName" formControlName="FirstName" class="form-control"/>
+    
+    <app-ng-on-change [inputFirstName]="parentInputFirstName"></app-ng-on-change>
+
+    <button type="submit" (click)="submit()">Submit</button>
+</div>
+</form>

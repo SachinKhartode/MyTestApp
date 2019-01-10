@@ -5,7 +5,7 @@ export class DirectivesImplementerService {
 
   constructor() { }
 
-  data: string = "tODAY iS wEDNESDay WOW WOW WOW"
+  data: string = "tODAY iS wEDNESDay"
   public getCammelCaseData(){
     var promice = new Promise((resolve,reject)=>{
         resolve(this.data);

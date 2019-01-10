@@ -5,34 +5,43 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './lifecycle-hooks.component.html',
   styleUrls: ['./lifecycle-hooks.component.css']
 })
-export class LifecycleHooksComponent implements OnInit, OnChanges, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked{
+export class LifecycleHooksComponent implements OnInit, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked{
   testForm: FormGroup;
   
-  @Input('data') data : string;
+  //@Input('inputFirstName') 
+  parentInputFirstName :string;
+  
+  localFirstName : string;
 
   constructor(private fb:FormBuilder,private cref:ChangeDetectorRef) {
     this.testForm = fb.group({
-      data : [null, null],
+      FirstName : [null, null],
     });
 
-    console.log(`new - data is ${this.data}`);
+    console.log(`new - FirstName is ${this.localFirstName}`);
   }
 
-  ngOnChanges(change:SimpleChanges) {
-    //this.data = this.testForm.get('data').value;
-    console.log(`ngOnChanges - data is ${this.data}`);
+  ngOnChanges(changes:SimpleChanges) {
+
+    // for (let propName in changes) {
+    //   let chng = changes[propName];
+    //   let cur  = JSON.stringify(chng.currentValue);
+    //   let prev = JSON.stringify(chng.previousValue);
+    //   console.log(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
+    // }
+
+    // this.localFirstName = this.testForm.value.FirstName;
+    // console.log(`ngOnChanges - FirstName is ${this.localFirstName}`);
+     console.log(`Parrent onchange `);
   }
 
   ngOnInit() {
-    console.log(`ngOnInit  - data is ${this.data}`);
-    debugger;
-    this.cref.markForCheck();
+    console.log(`ngOnInit  - FirstName is ${this.localFirstName}`);
   }
 
   ngDoCheck() {
-    //this.data = this.testForm.get('data').value;
-
-    console.log(`ngDoCheck ${this.data}`);
+    //this.localFirstName = this.testForm.get('FirstName').value;
+    console.log(`ngDoCheck ${this.localFirstName}`);
   }
 
   ngAfterContentInit() {
@@ -44,21 +53,22 @@ export class LifecycleHooksComponent implements OnInit, OnChanges, AfterContentI
   }
 
   ngAfterViewInit() {
-    console.log(`ngAfterViewInit ${this.data}`);
+    console.log(`ngAfterViewInit ${this.localFirstName}`);
 
   }
 
   ngAfterViewChecked() {
-    console.log(`ngAfterViewChecked ${this.data}`);
+    console.log(`ngAfterViewChecked ${this.localFirstName}`);
   }
 
   ngOnDestroy() {
     console.log("ngOnDestroy");
   }
 
-  submit(form:FormGroup){debugger;
-    this.data = form.value.data;
-    console.log(`submit ${this.data}`);
+  submit(){
+    this.localFirstName = this.testForm.value.FirstName;
+    this.parentInputFirstName = this.testForm.value.FirstName;
+    console.log(`submit ${this.localFirstName}`);
   }
   
 }

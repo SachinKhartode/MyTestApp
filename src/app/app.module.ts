@@ -33,6 +33,7 @@ import { DirectivesImplementerComponent } from './home/directives-implementer/di
 import { DirectivesImplementerService } from './home/directives-implementer/directives-implementer.service';
 import { ObservableComponent } from './observable/observable.component';
 import { AngMaterialGridComponent } from './home/ang-material-grid/ang-material-grid.component';
+import { NgOnChangeComponent } from './lifecycle-hooks/ng-on-change/ng-on-change.component';
 
 //import { AngularFileUploaderModule } from "angular-file-uploader";
  
@@ -66,7 +67,7 @@ const routes: Routes = [
     DisplayTrakOrAlbumComponent, HeaderComponent, FooterComponent, MenuSlidebarComponent, 
     LifecycleHooksComponent, ConstructorDecoratorComponent, TestNgPluralComponent, 
     IdNumberDirective, TestAnythingsComponent,FileUploadComponent, CammelCaseDirective, 
-    DirectivesImplementerComponent, ObservableComponent, AngMaterialGridComponent
+    DirectivesImplementerComponent, ObservableComponent, AngMaterialGridComponent, NgOnChangeComponent
   ],
   imports: [
     BrowserModule,
