@@ -14,7 +14,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { ArtistComponent } from './Routing/artist/artist.component';
 import { ArtistTrackListComponent } from './Routing/artist-track-list/artist-track-list.component';
 import { ArtistAlbumListComponent } from './Routing/artist-album-list/artist-album-list.component';
-import { DisplayTrakOrAlbumComponent } from './display-trak-or-album/display-trak-or-album.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuSlidebarComponent } from './menu-slidebar/menu-slidebar.component';
@@ -28,25 +27,34 @@ import { TestNgPluralComponent } from './test-ng-plural/test-ng-plural.component
 import { IdNumberDirective } from './directives/access-element.directive';
 import { TestAnythingsComponent } from './test-anythings/test-anythings.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
-import { CammelCaseDirective } from './directives/cammel-case.directive';
+import { CammelCaseDirective,myHighlight } from './directives/cammel-case.directive';
 import { DirectivesImplementerComponent } from './home/directives-implementer/directives-implementer.component';
 import { DirectivesImplementerService } from './home/directives-implementer/directives-implementer.service';
 import { ObservableComponent } from './observable/observable.component';
 import { AngMaterialGridComponent } from './home/ang-material-grid/ang-material-grid.component';
 import { NgOnChangeComponent } from './lifecycle-hooks/ng-on-change/ng-on-change.component';
+import { ContentProjectionComponent } from './home/content-projection/content-projection.component';
+import { ContentProjectionTemplateComponent } from './home/content-projection/content-projection-template/content-projection-template.component';
+import { JokeComponentComponent } from './home/content-projection/joke-component/joke-component.component';
+import { NgTemplateComponent } from './home/ng-template/ng-template.component';
+import { TemplatesComponent } from './home/ng-template/templates/templates.component';
+import { HttpModule } from '@angular/http';
+import { UnitTestingComponent } from './home/unit-testing/unit-testing.component';
+import { DisplayTrackComponent } from './routing/artist-track-list/display-track/display-track.component';
+import { DisplayAlbumComponent } from './Routing/artist-album-list/display-album/display-album.component';
 
 //import { AngularFileUploaderModule } from "angular-file-uploader";
  
 const routes: Routes = [
   { path: "lifecycleHooks", component: LifecycleHooksComponent},
-  { path: "displayTrackOrAlbum/:thumbnail", component: DisplayTrakOrAlbumComponent },
+  { path: "displayTrackOrAlbum/:thumbnail", component: DisplayAlbumComponent },
   {
     //
     // path: "artist/:artistId",
     path: "artist",
     component: ArtistComponent,
     children: [
-      { path: "tracks", component: ArtistTrackListComponent },
+      { path: "tracks", children:[{ path:"displayTrack/:thumbnail",component:DisplayTrackComponent,pathMatch:'full' }], component: ArtistTrackListComponent },
       { path: "albums", component: ArtistAlbumListComponent },
      // { path: "**", redirectTo: "tracks" }
     ]
@@ -58,24 +66,30 @@ const routes: Routes = [
   { path: "CammelCaseDirective", component: DirectivesImplementerComponent},
   { path: "Observable", component: ObservableComponent},
   { path: "Material", component: AngMaterialGridComponent},
+  { path: "ContentProjection", component: ContentProjectionComponent},
+  { path: "ngTemplate", component: TemplatesComponent},
+  { path: "unitTesting", component: UnitTestingComponent},
+  
   { path: "**", redirectTo:'artist' }
 ];
 
 @NgModule({
   declarations: [
     AppComponent, ArtistComponent, ArtistTrackListComponent, ArtistAlbumListComponent,
-    DisplayTrakOrAlbumComponent, HeaderComponent, FooterComponent, MenuSlidebarComponent, 
+    HeaderComponent, FooterComponent, MenuSlidebarComponent, 
     LifecycleHooksComponent, ConstructorDecoratorComponent, TestNgPluralComponent, 
-    IdNumberDirective, TestAnythingsComponent,FileUploadComponent, CammelCaseDirective, 
-    DirectivesImplementerComponent, ObservableComponent, AngMaterialGridComponent, NgOnChangeComponent
+    IdNumberDirective, TestAnythingsComponent,FileUploadComponent, CammelCaseDirective, myHighlight,
+    DirectivesImplementerComponent, ObservableComponent, AngMaterialGridComponent, NgOnChangeComponent,
+    ContentProjectionComponent,ContentProjectionTemplateComponent,JokeComponentComponent, NgTemplateComponent, TemplatesComponent, UnitTestingComponent, DisplayTrackComponent, DisplayAlbumComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes,{ useHash: true }),//, 
+    RouterModule.forRoot(routes,{ useHash: true }),//, ,enableTracing:true
     HttpClientModule,
+    HttpModule,
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,

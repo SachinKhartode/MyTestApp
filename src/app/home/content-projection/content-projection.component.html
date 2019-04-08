@@ -1,0 +1,40 @@
+<!-- <app-content-projection-template>
+    <span class="Example">
+        Example 1.
+    </span> 
+    <span class="jokeTitle">This is setup</span>
+    <span class="joke">This is punchline</span> 
+</app-content-projection-template>
+<br/>
+<br/>
+
+<span style="background-color: goldenrod; color: dodgerblue;">
+    <h3>
+        Example 2.
+    </h3>
+</span>
+
+<app-joke-component *ngFor="let j of jokes" [inputJokeProp]="j">
+    <h1 class="punchline">{{j.Joke}}</h1>    
+    <span class="setup">{{j.JokeTitle}}</span>
+</app-joke-component>
+-->
+<div *ngFor="let j of jokes; let i=index"> 
+<span *ngIf="i==0">
+    Template 1.
+</span>
+<app-content-projection-template *ngIf="i==0">
+    <span class="jokeTitle">{{j.JokeTitle}}</span>
+    <span class="joke">{{j.Joke}}</span> 
+</app-content-projection-template>
+
+<span *ngIf="i==1">
+    <br/><br/>
+    Template 2.
+</span>
+<app-joke-component [inputJokeProp]="j" *ngIf="i%2!=0">
+    
+    <h1 class="punchline">{{j.Joke}}</h1>    
+    <span class="setup">{{j.JokeTitle}}</span>
+</app-joke-component>
+</div>

@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-display-trak-or-album',
-  templateUrl: './display-trak-or-album.component.html',
-  styleUrls: ['./display-trak-or-album.component.css']
+  selector: 'app-display-track',
+  templateUrl: './display-track.component.html',
+  styleUrls: ['./display-track.component.css']
 })
-
-export class DisplayTrakOrAlbumComponent implements OnInit {
+export class DisplayTrackComponent implements OnInit {
 
   thumbnail : string;
   
@@ -16,12 +15,12 @@ export class DisplayTrakOrAlbumComponent implements OnInit {
     this.route.params.subscribe(params => this.thumbnail = params.thumbnail);
     
     this.route.parent.params.subscribe(params => console.log(params))
-    this.route.params.subscribe(params => console.log(params)); // Object {}
+    this.route.params.subscribe(params => console.log(params)); 
 
    }
 
-  ngOnInit() {
 
+  ngOnInit() {
   }
 
 }

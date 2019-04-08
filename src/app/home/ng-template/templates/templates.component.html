@@ -1,0 +1,33 @@
+
+<app-ng-template>
+  <ng-template #defaultTemplate let-result let-param2>
+    This is default template, {{result}}
+  </ng-template>
+  
+  <ng-template #loading>
+    This is loading template
+  </ng-template>
+  
+  <ng-template #loadingMore>
+    This is loading more template
+  </ng-template>
+  
+  <ng-template #noResults>
+    This is no result template
+  </ng-template>
+  </app-ng-template> 
+
+<br/><br/><br/>
+
+<ng-container>
+  <ng-template #test1 >
+      <span myHighlight >This is test1, highlighted with myHighlight directive in this application</span>
+  </ng-template>
+</ng-container>
+
+<ng-container [ngTemplateOutlet]="test1"></ng-container>
+
+
+<div myHighlight>
+  <span>This is highlighed Text </span>
+</div>

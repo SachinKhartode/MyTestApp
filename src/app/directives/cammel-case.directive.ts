@@ -1,12 +1,13 @@
-import { Directive, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Directive, Input, OnChanges, Output, EventEmitter, HostBinding } from '@angular/core';
 
 
 @Directive({
   selector: '[appCammelCase]',
- 
+  
 })
 export class CammelCaseDirective implements OnChanges {
   
+
   @Input() cammelCaseData :string
   @Output() outCammelCaseData  = new EventEmitter<any>();
   
@@ -31,5 +32,15 @@ export class CammelCaseDirective implements OnChanges {
     
 }
 
+
+}
+
+@Directive({
+  selector: '[myHighlight]',
+  
+})
+export class myHighlight  {
+
+  @HostBinding('style.color') backgroundColor:string = 'red';
 
 }

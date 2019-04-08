@@ -3,3 +3,12 @@
 table {
     width: 100%;
   } 
+
+ mat-header-row {
+    background-color: lightgray;   
+}
+mat-header-cell{
+  padding: 0%;
+  color: black;
+  font-weight: bold!important;
+}

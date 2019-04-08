@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DisplayTrakOrAlbumComponent } from './display-trak-or-album.component';
+import { DisplayTrackComponent } from './display-track.component';
 
-describe('DisplayTrakOrAlbumComponent', () => {
-  let component: DisplayTrakOrAlbumComponent;
-  let fixture: ComponentFixture<DisplayTrakOrAlbumComponent>;
+describe('DisplayTrackComponent', () => {
+  let component: DisplayTrackComponent;
+  let fixture: ComponentFixture<DisplayTrackComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DisplayTrakOrAlbumComponent ]
+      declarations: [ DisplayTrackComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DisplayTrakOrAlbumComponent);
+    fixture = TestBed.createComponent(DisplayTrackComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,3 +1,26 @@
 <h1>Artist Track Listing</h1>
 
-<h4><i>Yet to declare track list of this artist</i></h4>
+<div class="col-sm-6">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">Panel with panel-success class</div>
+
+        <div class="list-group">
+            <a [routerLink]="['../../artist/tracks/displayTrack',track.thumbnail]" class="list-group-item list-group-item-action" *ngFor="let track of results">
+                <img src="{{track.thumbnail}}" style="width: 25px; height: 25px;">
+                <span style="vertical-align:top; font-weight: bold;padding-left: 20px">
+                    {{ track.name }} by {{ track.artist }}
+                </span>
+                <br/>
+                <br/>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-6">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Panel with panel-success class</div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

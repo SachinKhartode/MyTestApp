@@ -1,0 +1,32 @@
+<!-- <ng-container *ngIf="true"> -->
+  <ng-container *ngFor="let i of test">
+  This Container data will display, 
+  <ng-template 
+    [ngTemplateOutlet]="templateRef"  #testTemp
+    [ngTemplateOutletContext]="{$implicit: 'Test default param'}">
+    This Template data will not display
+  </ng-template>
+</ng-container>
+<!-- </ng-container> -->
+<br/><br/>
+<ng-container *ngIf="true">
+  Container with nested Template -
+    <ng-template [ngTemplateOutlet]="testTemp">
+
+    </ng-template>
+  </ng-container>
+
+<br/><br/>
+<ng-container *ngIf="true">
+  <ng-template [ngTemplateOutlet]="loadingRef"></ng-template>
+</ng-container>
+
+<br/><br/>
+<ng-container *ngIf="true">
+  <ng-template [ngTemplateOutlet]="loadingMoreRef"></ng-template>
+</ng-container>
+
+<br/><br/>
+<ng-container *ngIf="true">
+  <ng-template [ngTemplateOutlet]="noResultsRef"></ng-template>
+</ng-container>

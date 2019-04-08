@@ -1,0 +1,16 @@
+<button class="button btn btn-info" name="Submit" (click)="AddEmployee()">Submit</button>
+<br/>
+
+<!--app-footer is added to test NO_EROR_SCHEMA and CUSTOME_ELEMENT_SCHEMA-->
+<app-footer></app-footer>
+<br/>
+
+<!--to test differance between interpolation and property binding-->
+<input type="text" value="{{counter}}"/>
+<input type="text" [value]="counter"/>
+<br/>
+{{counter}}
+<br/>
+<input type="text" value="{{string1 + string2}}"/>
+<input type="text" [value]="string1 + string2"/>
+<br/>

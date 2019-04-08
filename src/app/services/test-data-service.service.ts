@@ -4,24 +4,51 @@ import { Observable } from 'rxjs/Observable';
 import { subTest } from '../modules/test';
 import { Subscriber } from 'rxjs/Subscriber';
 import { map, catchError, filter } from 'rxjs/Operators';
+import { Http } from '@angular/http';
+import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class TestDataServiceService {
    
-constructor(private httpClient: HttpClient){}
-getEmployees(){
-       // var emp :Employee[];
-      //return new Observable<Employee[]>(D=>{
+constructor(private httpClient: HttpClient, private http: Http){}
+getEmployees():Observable<Observable<any>>{
+    // var emp :Employee[];
+    //return new Observable<Employee[]>(D=>{
         
-    return this.httpClient.get<Employee[]>("http://localhost:4444/api/Employee")
-          .pipe(
-          map(R=> {console.log(R); return R;} ),
-        //   catchError((R,emp)=> { 
+    /////// Latest Method of fetching data with HTTP CLIENT
+    // // // return this.httpClient.get<Employee[]>("http://localhost:4444/api/Employee").pipe(
+    // // //     map(R=> {
+    // // //         console.log(R); 
+    // // //         return R;
+    // // //     }),
+    // // //     catchError((err,emp)=> { 
+    // // //         console.log("Error :"+ err); 
+    // // //         return emp
+    // // //     })
+    // // // )
+
+    //OLD/Depricated HTTP is used to fetch data
+    return Observable.create(observer => {
+        observer.next(
+        this.http.get("http://localhost:4444/api/Employee").pipe(
+            map(res=>{
+                console.log("Success :"+ res); 
+                return res;
+            }),
+            catchError((err,emp)=> { 
+                console.log("Error :"+ err); 
+                return emp
+            }))
+        );}
+    );      
+            // map(res=> {
+            //     console.log(res); 
+            //     return res;
+            // }),
            
-        //     console.log("Error :"+ R); return emp})
-        )
-
-
+    
+    
         //  .subscribe(R=> 
         //   {  debugger;
         //     return  D.next(R);
@@ -56,7 +83,7 @@ getEmployees(){
 getEmployeesWithPromice(){
         //let emp = new Promise<Employee>((resolve,reject)=>{
             
-          return  this.httpClient.get<Employee[]>("http://localhost:4444/api/Employee").toPromise();
+        return  this.httpClient.get<Employee[]>("http://localhost:4444/api/Employee").toPromise();
         //     .then(res=>{
             
         //     if(res != null)
@@ -82,3 +109,21 @@ export class Employee{
     Position :string;
     Office :string;
 }
+
+
+
+    // let obser = new Subject(1);
+    // obser.next(34);
+    // obser.subscribe();
+
+    // let obser = new BehaviorSubject(1);
+    // obser.next(34);
+    // obser.value;
+    // obser.subscribe();
+
+    // let obser = new Observable((x)=>{
+    //     x.next(11);
+    //     x.complete();
+    //     x.error("asdasd");
+    // })
+    // obser.subscribe(o=>{ },_E=>{},()=>{})

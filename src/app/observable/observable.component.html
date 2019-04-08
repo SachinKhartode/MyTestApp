@@ -1,4 +1,7 @@
-<div *ngFor="let item of emp">
+<div #tempdiv>
+Component host property event binding on mouse in and out.
+</div>
+<div *ngFor="let item of emp" >
   {{item.EmployeeID}} - {{item.FirstName}} - {{item.LastName}}
 
 

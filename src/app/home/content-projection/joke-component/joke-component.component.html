@@ -1,0 +1,16 @@
+<span style="background-color: goldenrod; color: dodgerblue;">
+    <h3>
+      <ng-content select=".Example"></ng-content> 
+    </h3>
+  </span>
+<div class="card card-block" style="background-color: lightslategrey">
+  <h4 class="card-title" style="background-color: darkorange; color: darkmagenta">
+    <ng-content select=".setup"></ng-content>
+  </h4>
+  <p class="card-text" [hidden]="data.hide" style="color: brown"> 
+    <ng-content select=".punchline"></ng-content>
+  </p>
+  <a class="btn btn-primary" style="width: 100px;" (click)="data.toggle()">Tell Me
+  </a>
+</div>
+<br/>
