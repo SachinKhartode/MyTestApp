@@ -1,0 +1,21 @@
+1. User make request 
+2. UrlRoutingModule receive user request and It decides whether the request would be handled by our MVC application or not.
+3. RoutHandler match the requested URL with registered routes in route table.
+4. MvcHandler initiate Asp.Net pipeline for MVC application. It receive controller instance from controller factory and handle the further processing
+5. ControllerFactory create the controller object in ProcessRequest() method of MvcHandler using constructor with no parameters.
+6. After creating controller object, controllerbase class Execute() method called.
+7. Execute() calls to ExecuteCore() abstract method and that retrive action name from route data.
+8. ExecuteCore() calls ActionInvoker's InvokeAction() method
+9. ActionInvoker find the action method name in controller and invoke it.
+10. controller action method generate the action result to disply on view for client.
+
+
+The steps for the execution of an MVC project includes
+
+Receive first request for the application
+Performs routing
+Creates MVC request handler
+Create Controller
+Execute Controller
+Invoke action
+Execute Result
